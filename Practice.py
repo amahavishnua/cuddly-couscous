@@ -151,5 +151,33 @@ class Solution:
                 if int(n) in check:
                     return False
                 check.append(summ)
-                
+
+
+'''
+#BOATS problem Python LEETCODE 881
+The i-th person has weight people[i], and each boat can carry a maximum weight of limit.
+
+Each boat carries at most 2 people at the same time, provided the sum of the weight of those people is at most limit.
+
+Return the minimum number of boats to carry every given person.  (It is guaranteed each person can be carried by a boat.)
+
+'''
+class Solution:
+    def numRescueBoats(self, people: List[int], limit: int) -> int:
+        people.sort()
+        lp=0
+        rp=len(people)-1
+        count=0
+        while(lp<=rp):
+            if lp==rp and people[lp]<=limit:
+                print('executing')
+                count+=1
+            elif people[lp]+people[rp]<=limit:
+                count=count+1
+                lp=lp+1
+            elif people[lp]+people[rp]>limit :
+                if people[rp]<=limit :
+                    count=count+1
+            rp=rp-1
+        return count
             
