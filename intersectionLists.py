@@ -47,3 +47,11 @@ the symmetric difference of two sets, also known as the disjunctive union,
  is the set of elements which are in either of the sets, 
  but not in their intersection.
 '''
+
+#nut this is faster
+
+def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        a= set(nums1)
+        b=set(nums2)
+        
+        return a.intersection(b)

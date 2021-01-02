@@ -17,6 +17,27 @@ Output: Because nums[0] + nums[1] == 9, we return [0, 1].
 
 Input: nums = [3,2,4], target = 6
 Output: [1,2]
+
+//
+If sorted then
+
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        lo, hi = 0, len(nums)-1
+        while True:
+            sums = nums[lo] + nums[hi]
+            if sums < target:
+                lo += 1
+            elif sums > target:
+                hi -= 1
+            else:
+                return [lo+1, hi+1]
+        
+
+
+
+
 '''
 
 
@@ -95,3 +116,40 @@ class Solution:
                 total += values[s[i]]
                 i += 1
         return total
+
+
+
+        '''
+#CYCLE FORMATION
+        Write an algorithm to determine if a number n is happy.
+
+A happy number is a number defined by the following process:
+
+Starting with any positive integer, replace the number by the sum of the squares of its digits.
+Repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.
+Those numbers for which this process ends in 1 are happy.
+Return true if n is a happy number, and false if not.
+
+
+'''
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        check=[]
+        while(len(str(n))>0):
+            n=str(n)
+            
+            if len(n)==1 and n=='1':
+                return True
+            
+            else:
+                summ=0
+                t=n
+                for i in t:
+                    summ=int(i)*int(i)+summ
+                n=summ
+                #checking cycle formed or not
+                if int(n) in check:
+                    return False
+                check.append(summ)
+                
+            
