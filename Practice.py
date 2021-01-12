@@ -180,4 +180,49 @@ class Solution:
                     count=count+1
             rp=rp-1
         return count
-            
+
+
+
+LinkedLists:
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        
+        strl1=''
+        strl2=''
+        print(l1)
+        while(l1.val!=0):
+            print(l1.val)
+            strl1+=str(l1.val)
+            if l1.next==None:
+                break
+            l1=l1.next
+        print(strl1)
+        while(l2.val!=0):
+            print(l2.val)
+            strl2+=str(l2.val)
+            if l2.next==None:
+                break
+            l2=l2.next
+        print(strl2)
+        print(strl1,strl2)
+        summ=str(int(strl1[::-1])+int(strl2[::-1]))[::-1]
+        summLN=ListNode()
+        tempa=ListNode(1)
+        print(summ)
+        summLN.val=summ[0]
+        summLN.next=ListNode(summ[1])
+        summLN.next.next=ListNode(summ[2])
+        temp=ListNode(9)
+        for i in range(0,5):
+            temp=ListNode(i)
+            temp=temp.next
+        print(summLN)
+        print(temp)
+        return summLN
+        
